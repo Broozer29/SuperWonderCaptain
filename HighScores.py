@@ -1,7 +1,6 @@
 from operator import itemgetter
-import json
 import time
-
+import json
 
 def getHighScores(filename):
     try:
@@ -10,9 +9,7 @@ def getHighScores(filename):
     except FileNotFoundError:
         # If the file doesn't exist, use your default values
         scoresfile = {"scores": {time.strftime("%Y/%m/%d"): 0}}
-
     highscores = scoresfile["scores"]
-
     return highscores
 
 
@@ -65,4 +62,4 @@ print(getHighScore(scores, "2018/10/25"))
 print("Alltime score: ", getAllTimeHighScore(scores))
 
 print("Sorted\n", getSortedScoresByDate(scores))
-saveHighScores("test.json", scores)
+saveHighScores(scoresfile, scores)
